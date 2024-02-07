@@ -1,0 +1,52 @@
+.main {
+    background-color: rgb(252, 252, 251);
+}
+
+.c-title {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(91, 83, 83);
+    font-size: 20px;
+}
+
+.logincard {
+    background: none;
+    margin: auto;
+    height: 400px;
+    width: 700px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.fl {
+    color: rgb(237, 57, 57);
+    font-weight: bold;
+    // font-family: 'Times New Roman', Times, serif;
+}
+
+.main-btn {
+    background-color: rgb(226, 10, 39);
+    color: white;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-btn:hover {
+    color: white;
+    background-color: rgb(96, 62, 5);
+
+}
+
+.loginpage {
+    background-image: url('../../../assets/images/adminlogo.jpg');
+    background-repeat: no-repeat;
+    padding: 20px;
+    opacity: 80%;
+    border-radius: 30px;
+}
+
+input {
+    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
