@@ -1,4 +1,4 @@
-<div class="container main">
+<!-- <div class="container main">
     <input type="checkbox" id="flip">
     <div class="cover">
         <div class="front">
@@ -6,6 +6,13 @@
             <div class="text">
                 <span class="text-1">Every new friend is a <br> new adventure</span>
                 <span class="text-2">Let's get connected</span>
+            </div>
+        </div>
+        <div class="back">
+            <img class="backImg" src="images/backImg.jpg" alt="">
+            <div class="text">
+                <span class="text-1">Complete miles of journey <br> with one step</span>
+                <span class="text-2">Let's get started</span>
             </div>
         </div>
     </div>
@@ -21,15 +28,59 @@
                         </div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Enter your password" required
-                                formControlName="Password">
+                            <input type="password" placeholder="Enter your password" required formControlName="assword">
                         </div>
                         <div class="text"><a href="#">Forgot password?</a></div>
                         <div class="button input-box">
                             <input type="submit" value="Sumbit">
                         </div>
+                        <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label>
+                        </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="container-fluid main">
+    <div class="container adminlogin">
+        <div class="row m-auto">
+            <div class="col-sm-8 m-auto">
+                <div class="shadow">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- <div class="row">
+                                    <img src="/assets/images/adminlogo.jpg" alt="" height="370">
+                                </div> -->
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-3">
+                                    <div class="mb-1 mt-2">
+                                        <h1 class="text-center text-theme">Admin Login</h1>
+                                    </div>
+                                    <hr>
+                                    <form [formGroup]="AdminLoginForm" (ngSubmit)="adminlogin()">
+                                        <div class="form-group mt-4 mb-4">
+                                            <label class="mb-2">Username</label>
+                                            <input type="text" class="form-control" id="exampleInputName"
+                                                formControlName="username">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label class="mb-2">Password</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                formControlName="password">
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-sm btn-theme"
+                                                [disabled]="this.AdminLoginForm.invalid">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
