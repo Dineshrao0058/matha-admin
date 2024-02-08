@@ -5,13 +5,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-login',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './admin-login.component.html',
   styleUrl: './admin-login.component.scss'
 })
 export class AdminLoginComponent implements OnInit {
-
-  username!: string;
+  password!: string;
   mobileno!: string;
   loginForm!: FormGroup;
   constructor(private router: Router, private fb: FormBuilder) {
@@ -19,8 +18,9 @@ export class AdminLoginComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      password: ['', Validators.required],
       mobileno: ['', Validators.required]
+
     })
 
   }
