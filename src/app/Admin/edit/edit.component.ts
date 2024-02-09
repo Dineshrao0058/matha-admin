@@ -4,14 +4,14 @@ import { AdminService } from '../../shared/services/admin.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add',
+  selector: 'app-edit',
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule],
-  templateUrl: './add.component.html',
-  styleUrl: './add.component.scss'
+  templateUrl: './edit.component.html',
+  styleUrl: './edit.component.scss'
 })
-export class AddComponent implements OnInit {
-  AddForm!: FormGroup;
+export class EditComponent implements OnInit {
+  editForm!: FormGroup;
   size!: string;
   prices!: string;
   thickness!: string
@@ -20,19 +20,20 @@ export class AddComponent implements OnInit {
     private Routes: Router) { }
 
   ngOnInit(): void {
-    this.AddForm = this.fb.group({
+    this.editForm = this.fb.group({
       size: ['', [Validators.required]],
       price: ['', [Validators.required]],
       thickness: ['', [Validators.required]]
     })
   }
-  addframe() {
-    this.AdminApi.AddFrames(this.AddForm.value).subscribe((res: any) => {
-      if (res) {
-        localStorage.setItem('add', JSON.stringify(res))
-        this.Routes.navigate([''])
-        alert('added sucesfully')
-      }
-    })
+  editframe() {
+    // this.AdminApi.editFrames(this.editForm.value).subscribe((res: any) => {
+    //   if (res) {
+    //     localStorage.setItem('add', JSON.stringify(res))
+    //     this.Routes.navigate([''])
+    //     alert('edited sucesfully')
+    //   }
+    // })
   }
 }
+

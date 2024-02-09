@@ -1,0 +1,20 @@
+<h3>View Frames</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope=>Size</th>
+            <th scope=>Price</th>
+            <th scope=>Thickness</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let f of Frames">
+            <td>{{f.size}}</td>
+            <td>{{f.price}}</td>
+            <td>{{f.thickness}}</td>
+            <td><button class="btn btn-primary" type="button" (click)="edit(f)">Edit</button></td>
+        </tr>
+
+    </tbody>
+</table>

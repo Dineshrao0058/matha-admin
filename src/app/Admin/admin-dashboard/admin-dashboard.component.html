@@ -1,28 +1,30 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="add" >add</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item routerLink="add">ADD</a>
+      <a mat-list-item routerLink="view">View</a>
+      <a mat-list-item routerLink="edit">Edit</a>
+
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary main">
       @if (isHandset$ | async) {
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      <div class="col-sm-1">
+        <button type="button" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon"><i class="bi bi-list">menu</i></mat-icon>
         </button>
+      </div>
       }
-      <span>mathaomg</span>
+      <span class="span">MathaOmg</span>
+      <div class="col-sm-1 mt-1 text-end">
+     <button class="btn btn-danger text btn-sm w-75">Logout</button>
+      </div>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
