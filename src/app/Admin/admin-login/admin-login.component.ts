@@ -25,12 +25,15 @@ export class AdminLoginComponent implements OnInit {
   }
   adminlogin() {
     if (this.AdminLoginForm.valid) {
-      let username = this.AdminLoginForm.get('username')?.value
-      let password = this.AdminLoginForm.get('password')?.value
+    
 
       this.AdminApi.getAdmin(this.AdminLoginForm.value).subscribe((res: any) => {
+        console.log(res);
+        
         if (res) {
-          localStorage.setItem('admin', JSON.stringify(res))
+          localStorage.setItem('admin', JSON.stringify(res.Admin));
+          localStorage.setItem('token', (res.token))
+
           this.Routes.navigate(['admin-dashboard'])
           alert('login sucesfully')
         } else {

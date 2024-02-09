@@ -8,7 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -34,4 +34,13 @@ export class AdminDashboardComponent {
       map(result => result.matches),
       shareReplay()
     );
+  constructor(private Router: Router) {
+
+  }
+  logout() {
+    localStorage.removeItem('admin');
+    localStorage.removeItem('token');
+    this.Router.navigate(['/admin'])
+
+  }
 }

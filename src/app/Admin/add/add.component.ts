@@ -14,7 +14,7 @@ export class AddComponent implements OnInit {
   AddForm!: FormGroup;
   size!: string;
   prices!: string;
-  thickness!: string
+  thickness!: string 
   constructor(private AdminApi: AdminService,
     private fb: FormBuilder,
     private Routes: Router) { }
@@ -28,11 +28,8 @@ export class AddComponent implements OnInit {
   }
   addframe() {
     this.AdminApi.AddFrames(this.AddForm.value).subscribe((res: any) => {
-      if (res) {
-        localStorage.setItem('add', JSON.stringify(res))
-        this.Routes.navigate([''])
-        alert('added sucesfully')
-      }
+    console.log(res);
+    
     })
   }
-}
+} 

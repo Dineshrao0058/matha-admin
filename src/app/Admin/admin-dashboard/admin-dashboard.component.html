@@ -2,10 +2,10 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item routerLink="add">ADD</a>
-      <a mat-list-item routerLink="view">View</a>
-      <a mat-list-item routerLink="edit">Edit</a>
+    <mat-nav-list class="sidelinks"><hr>
+      <a mat-list-item routerLink="add">ADD Frames</a><hr>
+      <a mat-list-item routerLink="view">View Frames</a><hr>
+      <a mat-list-item routerLink="edit">Edit Frames</a><hr>
 
 
     </mat-nav-list>
@@ -20,11 +20,11 @@
       </div>
       }
       <span class="span">MathaOmg</span>
-      <div class="col-sm-1 mt-1 text-end">
-     <button class="btn btn-danger text btn-sm w-75">Logout</button>
+      <div class="text-center ">
+        <button type="submit" class="btn btn-theme" (click)="logout()" >Logout</button>
       </div>
     </mat-toolbar>
-    
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

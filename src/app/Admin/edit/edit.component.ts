@@ -11,29 +11,42 @@ import { Router } from '@angular/router';
   styleUrl: './edit.component.scss'
 })
 export class EditComponent implements OnInit {
-  editForm!: FormGroup;
-  size!: string;
-  prices!: string;
-  thickness!: string
-  constructor(private AdminApi: AdminService,
-    private fb: FormBuilder,
-    private Routes: Router) { }
+  editform!: FormGroup
+  constructor(private fb: FormBuilder, private router: Router, private AdminApi: AdminService) { }
 
   ngOnInit(): void {
-    this.editForm = this.fb.group({
+    this.editform = this.fb.group({
       size: ['', [Validators.required]],
       price: ['', [Validators.required]],
       thickness: ['', [Validators.required]]
     })
   }
-  editframe() {
-    // this.AdminApi.editFrames(this.editForm.value).subscribe((res: any) => {
-    //   if (res) {
-    //     localStorage.setItem('add', JSON.stringify(res))
-    //     this.Routes.navigate([''])
-    //     alert('edited sucesfully')
-    //   }
-    // })
+  editframes() {
+
   }
 }
+// editForm!: FormGroup;
+// size!: string;
+// prices!: string;
+// thickness!: string
+// constructor(private AdminApi: AdminService,
+//   private fb: FormBuilder,
+//   private Routes: Router) { }
+
+// ngOnInit(): void {
+//   this.editForm = this.fb.group({
+//     size: ['', [Validators.required]],
+//     price: ['', [Validators.required]],
+//     thickness: ['', [Validators.required]]
+//   })
+// }
+// editframe() {
+//   this.AdminApi.editFrames(this.editForm.value).subscribe((res: any) => {
+//     if (res) {
+//       localStorage.setItem('add', JSON.stringify(res))
+//       this.Routes.navigate([''])
+//       alert('edited sucesfully')
+//     }
+//   })
+// }
 
