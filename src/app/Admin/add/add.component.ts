@@ -27,6 +27,8 @@ export class AddComponent implements OnInit {
     })
   }
   addframe() {
+    console.log(localStorage.getItem('token'),'localStorage.getItem');
+    
     this.AdminApi.AddFrames(this.AddForm.value).subscribe((res: any) => {
     console.log(res);
     
