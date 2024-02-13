@@ -24,7 +24,7 @@ export class ViewComponent implements OnInit {
 
   }
   edit(data: any) {
-
+    
   }
 }
 
