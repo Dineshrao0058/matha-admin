@@ -1,4 +1,4 @@
-<div class="col-sm-6 m-auto">
+<!-- <div class="col-sm-6 m-auto">
     <div class="card  px-4 py-5 mt-4">
         <div class="card-header text-center">
             <h1>ADD</h1>
@@ -21,5 +21,47 @@
                     Values</button>
             </div>
         </form>
+    </div>
+</div> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card P-4">
+                <div>
+                    <h1 class="card-header text-center">Add Size</h1>
+                </div>
+                <div class="card-body lb">
+                    <form [formGroup]="AddForm">
+                        <div class="mb-4">
+                            <label class="fw-bold">Add Size</label>
+                            <input type="text" class="form-control" formControlName="size">
+                        </div>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-primary" (click)="addSizes()">Add Size</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br><br>
+<div class="col-sm-6">
+    <div class="card p-4">
+        <h2 class="card-header text-center">View Size</h2>
+        <table class="table table-bordered p-2">
+            <thead>
+                <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Sizes</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of frames; let i= index ">
+                    <td>{{i+1}}</td>
+                    <td>{{a.size}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

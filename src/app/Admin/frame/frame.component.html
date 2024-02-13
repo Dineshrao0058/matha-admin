@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card P-4">
+                <div>
+                    <h1 class="card-header text-center">Add Thickness</h1>
+                </div>
+                <div class="card-body lb">
+                    <form [formGroup]="ThicknessForm">
+                        <div class="mb-4">
+                            <label class="fw-bold">Add Frame</label>
+                            <input type="text" class="form-control" formControlName="thickness">
+                        </div>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-primary" (click)="addThickness()">Add Frames</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br><br>
+<div class="col-sm-6">
+    <div class="card p-4">
+        <h2 class="card-header text-center">View Frame</h2>
+        <table class="table table-bordered p-2">
+            <thead>
+                <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Frame Thickness</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let b of frames; let i= index ">
+                    <td>{{i+1}}</td>
+                    <td>{{b.thickness}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

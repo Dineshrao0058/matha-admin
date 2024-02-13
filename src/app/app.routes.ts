@@ -4,6 +4,7 @@ import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard
 import { AddComponent } from './Admin/add/add.component';
 import { ViewComponent } from './Admin/view/view.component';
 import { EditComponent } from './Admin/edit/edit.component';
+import { FrameComponent } from './Admin/frame/frame.component';
 export const routes: Routes = [
     { path: '', component: AdminLoginComponent },
     { path: 'admin', component: AdminLoginComponent },
@@ -12,7 +13,8 @@ export const routes: Routes = [
 
             { path: 'add', component: AddComponent },
             { path: 'view', component: ViewComponent },
-            { path: 'edit', component: EditComponent }
+            { path: 'edit', component: EditComponent },
+            { path: 'frame', component: FrameComponent }
         ]
     }
 ];

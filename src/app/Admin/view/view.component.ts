@@ -18,9 +18,9 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
     console.log(localStorage.getItem('token'),'local storage');
     
-    this.AdminApi.viewFrames().subscribe((res) => {
-      this.Frames = res
-    })
+    // this.AdminApi.viewFrames().subscribe((res) => {
+    //   this.Frames = res
+    // })
 
   }
   edit(data: any) {
