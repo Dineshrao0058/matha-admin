@@ -32,15 +32,6 @@ export class AdminService {
   Getsize() {
     return this.http.get('http://localhost:5000/size/getsizes', this.jwttoken())
   }
-<<<<<<< HEAD
-  Addthickness(data: any) {
-    return this.http.post('http://localhost:5000/thickness/addthickness', data, this.jwttoken())
-
-  }
-  Getthickness() {
-    return this.http.get('http://localhost:5000/thickness/getallthickness', this.jwttoken())
-
-  }  
   Addprice(data:any) {
     return this.http.post('http://localhost:5000/price/addprice', data, this.jwttoken())
   }
@@ -51,7 +42,6 @@ export class AdminService {
   // viewFrames() {
   //   return this.http.get('http://localhost:5000/frames/getframes', this.jwttoken())
   // }
-=======
 
   Addthickness(data:any) {
     return this.http.post('http://localhost:5000/thickness/addthickness', data, this.jwttoken())
@@ -75,6 +65,5 @@ export class AdminService {
     return this.http.post('http://localhost:5000/price/addprice',data,this.jwttoken())
   }
  
->>>>>>> 4af58084ee94f4cc05f37a7fd416907c7a45178b
 
 }
