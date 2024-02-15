@@ -31,33 +31,36 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row">
-                                    <img src="/assets/images/edit.jpg" alt="" height="400">
+                                    <img src="/assets/images/edit.jpg" alt="" >
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="mb-1">
-                                        <h1 class="text-center text-theme">Edit Frames</h1>
+                                        <h1 class="text-center text-theme">Prices For Frames</h1>
                                     </div>
                                     <hr>
-                                    <form [formGroup]="editform" (ngSubmit)="editframes()">
-                                        <div class="form-group mb-4">
+                                    <form [formGroup]="addPricesform" >
+                                        <div class="form-group mb-4" >
                                             <label class="mb-1">Size</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                formControlName="size">
+                                            <select class="form-select" aria-label="Default select example" formControlName="sizeId" >
+                                                <option *ngFor="let s of sizes" [value]="s._id">{{s.size}}</option>
+                                              </select>                              
+                                        </div>
+                                       
+                                        <div class="form-group mb-4">
+                                            <label class="mb-1">Thickness</label>
+                                            <select class="form-select" aria-label="Default select example" formControlName="thicknessId" >
+                                                <option *ngFor="let t of thickness" [value]="t._id">{{t.thickness}}</option>
+                                              </select> 
                                         </div>
                                         <div class="form-group mb-4">
                                             <label class="mb-1">Price</label>
                                             <input type="number" class="form-control" id="exampleInputPassword1"
                                                 formControlName="price">
                                         </div>
-                                        <div class="form-group mb-4">
-                                            <label class="mb-1">Thickness</label>
-                                            <input type="text" class="form-control" id="exampleInputPassword1"
-                                                formControlName="thickness">
-                                        </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-theme">Edit Frames</button>
+                                            <button type="submit" class="btn btn-theme" (click)="addPrice()">submit</button>
                                         </div>
                                     </form>
                                 </div>
