@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './price.component.scss'
 })
 export class PriceComponent implements OnInit {
+  prices!:any
   // priceForm!: FormGroup;
   // size: any;
   // thickness: any;
