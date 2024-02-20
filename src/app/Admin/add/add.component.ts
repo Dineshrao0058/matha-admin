@@ -36,4 +36,12 @@ export class AddComponent implements OnInit {
 
     })
   }
+  edit() {
+  //   this.AdminApi.getSizes(this.data._id, this.editForm.value)
+  //     .subscribe((res: any) => {
+  //       console.log(res, 'edit');
+  //     });
+  //   window.location.reload();
+  }
+
 }
