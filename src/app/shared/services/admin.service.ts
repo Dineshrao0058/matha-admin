@@ -85,4 +85,8 @@ getAllframesWithprices(){
   return this.http.get('http://localhost:5000/price/getframes' ,this.jwttoken())
 }
 
+updatePrices(data:any){
+  return this.http.put('http://localhost:5000/price/updatePrice/'+data.id,data, this.jwttoken())
+}
+
 }
