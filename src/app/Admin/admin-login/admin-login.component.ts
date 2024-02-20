@@ -32,7 +32,7 @@ export class AdminLoginComponent implements OnInit {
         
         if (res) {
           localStorage.setItem('admin', JSON.stringify(res.Admin));
-          localStorage.setItem('token', (res.token))
+          localStorage.setItem('admin-token', (res.token))
 
           this.Routes.navigate(['admin-dashboard'])
           alert('login sucesfully')

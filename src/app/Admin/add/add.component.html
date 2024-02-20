@@ -9,10 +9,11 @@
                     <form [formGroup]="AddForm">
                         <div class="mb-4">
                             <label class="fw-bold">Add Size</label>
-                            <input type="text" class="form-control" formControlName="size">
+                            <input type="text" class="form-control" formControlName="size" >
                         </div>
                         <div class="d-grid gap-2 d-md-block">
                             <button class="btn btn-primary" (click)="addSizes()">Add Size</button>
+                            <button class="btn btn-primary" (click)="updateSizes()">Update</button>
                         </div>
                     </form>
                 </div>
@@ -28,41 +29,23 @@
                 <tr>
                     <th scope="col">S.no</th>
                     <th scope="col">Sizes</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let a of frames; let i= index ">
                     <td>{{i+1}}</td>
                     <td>{{a.size}}</td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Edit
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal " id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button type="button" class="btn btn-warning" (click)="editSize(a)">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteSize(a)">Delete</button>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
+
+  
+  
+ 
