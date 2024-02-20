@@ -97,6 +97,7 @@ export class PriceComponent implements OnInit {
   addPricesform!: FormGroup
   sizes: any
   thickness: any
+  allFrames:any
   constructor(private fb: FormBuilder, private router: Router, private AdminApi: AdminService) { }
 
   ngOnInit(): void {
@@ -114,6 +115,11 @@ export class PriceComponent implements OnInit {
     this.AdminApi.getThickness().subscribe((res) => {
       this.thickness = res
       console.log(this.thickness, "thickness")
+    })
+
+    this.AdminApi.getAllframesWithprices().subscribe((res:any)=>{
+      this.allFrames = res
+      console.log(this.allFrames,'allframes')
     })
   }
   addPrice() {

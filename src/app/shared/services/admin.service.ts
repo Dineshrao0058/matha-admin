@@ -5,20 +5,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AdminService {
-  viewproduct() {
-    throw new Error('Method not implemented.');
-  }
+ 
   header: any
   jwttoken(): any {
     this.header = {
       headers: new HttpHeaders({
-        Authorization: 'Bearer ' + localStorage.getItem('token')
+        Authorization: 'Bearer ' + localStorage.getItem('admin-token')
       }),
     }
     return this.header;
+    
   }
 
   constructor(private http: HttpClient) {
+   
   }
 
   getAdmin(data: any) {
@@ -63,7 +63,26 @@ export class AdminService {
 
   addPrices(data:any){
     return this.http.post('http://localhost:5000/price/addprice',data,this.jwttoken())
+  };
+
+  updateSize( data:any){
+    return this.http.put('http://localhost:5000/size/updatesizeBy/'+data.id,data,this.jwttoken())
+  };
+
+  deleteSize(id:any){
+    return this.http.delete('http://localhost:5000/size/deletesizeBy/'+id,this.jwttoken());
   }
+
+ updateThickness(data:any){
+    return this.http.put('http://localhost:5000/thickness/updateThicknessBy/'+data.id,data,this.jwttoken())
+ }
+
+ deleteThickness(id:any){
+  return this.http.delete('http://localhost:5000/thickness/deleteThicknessBy/'+id, this.jwttoken());
+}
  
+getAllframesWithprices(){
+  return this.http.get('http://localhost:5000/price/getframes' ,this.jwttoken())
+}
 
 }

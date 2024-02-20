@@ -21,6 +21,7 @@ export class FrameComponent implements OnInit {
   ngOnInit(): void {
     this.ThicknessForm = this.fb.group({
       thickness: ['', [Validators.required]],
+            id: ['', [Validators.required]],
     })
     this.AdminApi.Getthickness().subscribe((res: any) => {
       this.frames = res
@@ -35,5 +36,24 @@ export class FrameComponent implements OnInit {
 
     })
   }
+
+  editThickness(b: any) {
+    this.ThicknessForm.patchValue({
+      thickness: b. thickness,
+      id:b._id, 
+    });
+  }
+
+  updateThickness(){
+    this.AdminApi.updateThickness(this.ThicknessForm.value).subscribe((res:any)=>{
+      console.log(res)
+    })
+  }
+
+  deleteThickness(b:any){
+    this.AdminApi.deleteThickness(b._id).subscribe((res:any)=>{
+      console.log(res)
+    })
+  }  
 }
 

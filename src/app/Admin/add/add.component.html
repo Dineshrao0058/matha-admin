@@ -34,10 +34,11 @@
                     <form [formGroup]="AddForm">
                         <div class="mb-4">
                             <label class="fw-bold">Add Size</label>
-                            <input type="text" class="form-control" formControlName="size">
+                            <input type="text" class="form-control" formControlName="size" >
                         </div>
                         <div class="d-grid gap-2 d-md-block">
                             <button class="btn btn-primary" (click)="addSizes()">Add Size</button>
+                            <button class="btn btn-primary" (click)="updateSizes()">Update</button>
                         </div>
                     </form>
                 </div>
@@ -53,15 +54,23 @@
                 <tr>
                     <th scope="col">S.no</th>
                     <th scope="col">Sizes</th>
-
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let a of frames; let i= index ">
                     <td>{{i+1}}</td>
                     <td>{{a.size}}</td>
+                    <button type="button" class="btn btn-warning" (click)="editSize(a)">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteSize(a)">Delete</button>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
+
+  
+  
+ 
