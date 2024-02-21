@@ -44,30 +44,34 @@
     </div>
 </div> -->
 <div class="table-responsive mt-4">
-    <table class="table table-bordered">
-        <thead class="bg-dark text-white sticky-top">
-            <tr>
-                <th>S.No:</th>
-                <th>Frame Sizes</th>
-                <th>Actions</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let a of frames; let i = index">
-                <td>
-                    {{ i + 1 }}
-                </td>
-                <td>
-                    <p class="">{{ a.size }}</p>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-warning" (click)="editSize(a)">Edit</button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-danger" (click)="deleteSize(a)">Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card">
+        <h2 class="card-header text-center">View</h2>
+        <table class="table table-bordered">
+            <thead class="bg-dark text-white sticky-top">
+                <tr>
+                    <th>S.No:</th>
+                    <th>Frame Sizes</th>
+                    <th>Actions</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of frames; let i = index">
+                    <td>
+                        {{ i + 1 }}
+                    </td>
+                    <td>
+                        <p class="">{{ a.size }}</p>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning" (click)="editSize(a)">Edit</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteSize(a)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

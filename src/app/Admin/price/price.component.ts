@@ -127,7 +127,7 @@ export class PriceComponent implements OnInit {
   addPrice() {
     this.AdminApi.addPrices(this.addPricesform.value).subscribe((res) => {
       console.log(res, "prices")
-      window.location.reload();
+      // window.location.reload();
     })
   }
 

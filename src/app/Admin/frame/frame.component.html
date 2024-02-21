@@ -12,8 +12,8 @@
                             <input type="text" class="form-control" formControlName="thickness">
                         </div>
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-primary" (click)="addThickness()">Add Frames</button>
-                            <button class="btn btn-primary" (click)="updateThickness()">Update</button>
+                            <button class="btn btn-primary" *ngIf="addbtn" (click)="addThickness()">Add Frames</button>
+                            <button class="btn btn-primary" *ngIf="editbtn" (click)="updateThickness()">Update</button>
                         </div>
                     </form>
                 </div>
@@ -37,8 +37,12 @@
                 <tr *ngFor="let b of frames; let i= index ">
                     <td>{{i+1}}</td>
                     <td>{{b.thickness}}</td>
-                    <button type="button" class="btn btn-warning" (click)="editThickness(b)">Edit</button>
-                     <button type="button" class="btn btn-danger" (click)="deleteThickness(b)">Delete</button>
+                    <td>
+                        <button type="button" class="btn btn-warning" (click)="editThickness(b)">Edit</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteThickness(b)">Delete</button>
+
+                    </td>
+                    
                 </tr>
             </tbody>
         </table>
