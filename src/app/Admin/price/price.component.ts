@@ -105,7 +105,8 @@ export class PriceComponent implements OnInit {
     this.addPricesform = this.fb.group({
       sizeId: ['', [Validators.required]],
       price: ['', [Validators.required]],
-      thicknessId: ['', [Validators.required]]
+      thicknessId: ['', [Validators.required]],
+      id:['', [Validators.required]]
     })
 
     this.AdminApi.getSizes().subscribe((res) => {
@@ -129,5 +130,18 @@ export class PriceComponent implements OnInit {
       window.location.reload();
     })
   }
+
+ editPrice(p:any){
+  this.addPricesform.patchValue({
+    price:p.price,
+    id:p._id  
+  })
+ }
+ 
+ updateSizes(){
+  this.AdminApi.updatePrices(this.addPricesform.value).subscribe((res:any)=>{
+    console.log(res,'up')
+  })
+ }
 }
 

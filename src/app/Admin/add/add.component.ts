@@ -52,8 +52,7 @@ export class AddComponent implements OnInit {
     this.editbtn = true
     this.AddForm.patchValue({
       size: s.size,
-      id: s._id,
-
+      id:s._id, 
     });
 
   }
@@ -65,11 +64,10 @@ export class AddComponent implements OnInit {
     window.location.reload();
   };
 
-  deleteSize(a: any) {
-
-    this.AdminApi.deleteSize(a._id).subscribe((res) => {
-      console.log(res, 'delete size')
-      window.location.reload();
+  deleteSize(a:any){
+    
+    this.AdminApi.deleteSize(a._id).subscribe((res)=>{
+    console.log(res,'delete size')  
     })
   }
 
