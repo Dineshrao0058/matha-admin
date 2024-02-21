@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './price.component.scss'
 })
 export class PriceComponent implements OnInit {
-  prices!:any
+  prices!: any
   // priceForm!: FormGroup;
   // size: any;
   // thickness: any;
@@ -98,7 +98,7 @@ export class PriceComponent implements OnInit {
   addPricesform!: FormGroup
   sizes: any
   thickness: any
-  allFrames:any
+  allFrames: any
   constructor(private fb: FormBuilder, private router: Router, private AdminApi: AdminService) { }
 
   ngOnInit(): void {
@@ -118,14 +118,15 @@ export class PriceComponent implements OnInit {
       console.log(this.thickness, "thickness")
     })
 
-    this.AdminApi.getAllframesWithprices().subscribe((res:any)=>{
+    this.AdminApi.getAllframesWithprices().subscribe((res: any) => {
       this.allFrames = res
-      console.log(this.allFrames,'allframes')
+      console.log(this.allFrames, 'allframes')
     })
   }
   addPrice() {
     this.AdminApi.addPrices(this.addPricesform.value).subscribe((res) => {
       console.log(res, "prices")
+      window.location.reload();
     })
   }
 }

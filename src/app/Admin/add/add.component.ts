@@ -8,13 +8,13 @@ import {
 } from '@angular/forms';
 import { AdminService } from '../../shared/services/admin.service';
 import { Router } from '@angular/router';
-import { NgFor } from '@angular/common';
-import { log } from 'console';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-add',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NgFor],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './add.component.html',
   styleUrl: './add.component.scss',
 })
@@ -22,13 +22,13 @@ export class AddComponent implements OnInit {
   AddForm!: FormGroup;
   frames!: any;
   sizeid!: any
-  
-  
+  addbtn: boolean = true
+  editbtn: boolean = false
   constructor(
     private AdminApi: AdminService,
     private fb: FormBuilder,
     private Routes: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.AddForm = this.fb.group({
@@ -48,22 +48,29 @@ export class AddComponent implements OnInit {
   }
 
   editSize(s: any) {
+    this.addbtn = false
+    this.editbtn = true
     this.AddForm.patchValue({
       size: s.size,
-      id:s._id, 
+      id: s._id,
+
     });
+
   }
 
-  updateSizes() {  
+  updateSizes() {
     this.AdminApi.updateSize(this.AddForm.value).subscribe((res: any) => {
-      console.log(res);  
+      console.log(res);
     });
+    window.location.reload();
   };
 
-  deleteSize(a:any){
-    
-    this.AdminApi.deleteSize(a._id).subscribe((res)=>{
-    console.log(res,'delete size')  
+  deleteSize(a: any) {
+
+    this.AdminApi.deleteSize(a._id).subscribe((res) => {
+      console.log(res, 'delete size')
+      window.location.reload();
     })
-  } 
+  }
+
 }

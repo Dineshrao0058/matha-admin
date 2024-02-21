@@ -47,12 +47,14 @@ export class FrameComponent implements OnInit {
   updateThickness(){
     this.AdminApi.updateThickness(this.ThicknessForm.value).subscribe((res:any)=>{
       console.log(res)
+      window.location.reload();
     })
   }
 
   deleteThickness(b:any){
     this.AdminApi.deleteThickness(b._id).subscribe((res:any)=>{
       console.log(res)
+      window.location.reload();
     })
   }  
 }

@@ -9,11 +9,11 @@
                     <form [formGroup]="AddForm">
                         <div class="mb-4">
                             <label class="fw-bold">Add Size</label>
-                            <input type="text" class="form-control" formControlName="size" >
+                            <input type="text" class="form-control" formControlName="size">
                         </div>
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-primary" (click)="addSizes()">Add Size</button>
-                            <button class="btn btn-primary" (click)="updateSizes()">Update</button>
+                            <button class="btn btn-primary" *ngIf="addbtn" (click)="addSizes()">Add Size</button>
+                            <button class="btn btn-primary" *ngIf="editbtn" (click)="updateSizes()">Update</button>
                         </div>
                     </form>
                 </div>
@@ -21,7 +21,7 @@
         </div>
     </div>
 </div><br><br>
-<div class="col-sm-6">
+<!-- <div class="col-sm-6">
     <div class="card p-4">
         <h2 class="card-header text-center">View Size</h2>
         <table class="table table-bordered p-2">
@@ -42,10 +42,32 @@
             </tbody>
         </table>
     </div>
+</div> -->
+<div class="table-responsive mt-4">
+    <table class="table table-bordered">
+        <thead class="bg-dark text-white sticky-top">
+            <tr>
+                <th>S.No:</th>
+                <th>Frame Sizes</th>
+                <th>Actions</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of frames; let i = index">
+                <td>
+                    {{ i + 1 }}
+                </td>
+                <td>
+                    <p class="">{{ a.size }}</p>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning" (click)="editSize(a)">Edit</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="deleteSize(a)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-
-
-  
-  
- 
