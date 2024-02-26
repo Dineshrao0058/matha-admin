@@ -1,7 +1,7 @@
 <div class="container-fluid main">
     <div class="container adminlogin">
         <div class="row m-auto">
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <div class="card p-4">
                     <h2 class="card-header text-center">View Details</h2>
                     <table class="table table-bordered p-2">
@@ -20,14 +20,18 @@
                                 <td>{{p.sizes_details[0]?.size}}</td>
                                 <td>{{p.thicknes_details[0]?.thickness}}</td>
                                 <td>{{p.price}}</td>
-                                <button type="button" class="btn btn-warning" (click)="editPrice(p)">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
+                                <td>
+                                    <a type="button" (click)="editPrice(p)"><i class="bi bi-pencil-square ms-2 fs-4"
+                                            style="color: blue;"></i></a>
+                                    <a type="button" (click)="deleteprice(p)"><i class="bi bi-trash3 ms-2 fs-4 "
+                                            style="color: red; "></i></a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class=" col-sm-4">
                 <div class="shadow">
                     <div class="card-body p-0">
                         <div class="row">
@@ -39,7 +43,7 @@
                                 
                             </div> -->
 
-                            <div class="col-sm-6">
+                            <div>
                                 <div class="p-5">
                                     <div class="mb-1">
                                         <h1 class="text-center text-theme">Prices For Frames</h1>
@@ -50,15 +54,16 @@
                                             <label class="mb-1">Size</label>
                                             <select class="form-select" aria-label="Default select example"
                                                 formControlName="sizeId">
-                                                <option *ngFor="let s of sizes" [value]="s._id">{{s.size}}</option>
+                                                <option *ngFor="let s of sizes" [value]="s._id">
+                                                    {{s.size}}</option>
                                             </select>
                                         </div>
-
                                         <div class="form-group mb-4">
                                             <label class="mb-1">Thickness </label>
                                             <select class="form-select" aria-label="Default select example"
                                                 formControlName="thicknessId">
-                                                <option *ngFor="let t of thickness" [value]="t._id">{{t.thickness}}
+                                                <option *ngFor="let t of thickness" [value]="t._id">
+                                                    {{t.thickness}}
                                                 </option>
                                             </select>
                                         </div>
@@ -68,9 +73,10 @@
                                                 formControlName="price">
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-theme"
+                                            <button type="submit" class="btn btn-theme" *ngIf="addbtn"
                                                 (click)="addPrice()">submit</button>
-                                            <button class="btn btn-primary" (click)="updateSizes()">Update</button>
+                                            <button class="btn btn-primary"  class="btn btn-theme" *ngIf="editbtn"
+                                                (click)="updateSizes()">Update</button>
                                         </div>
                                     </form>
                                 </div>
@@ -83,6 +89,5 @@
             <!-- end col -->
         </div>
         <!-- Row -->
-
     </div>
 </div>

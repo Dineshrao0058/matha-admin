@@ -99,6 +99,8 @@ export class PriceComponent implements OnInit {
   sizes: any
   thickness: any
   allFrames: any
+  addbtn: boolean = true
+  editbtn: boolean = false
   constructor(private fb: FormBuilder, private router: Router, private AdminApi: AdminService) { }
 
   ngOnInit(): void {
@@ -106,7 +108,7 @@ export class PriceComponent implements OnInit {
       sizeId: ['', [Validators.required]],
       price: ['', [Validators.required]],
       thicknessId: ['', [Validators.required]],
-      id:['', [Validators.required]]
+      id: ['', [Validators.required]]
     })
 
     this.AdminApi.getSizes().subscribe((res) => {
@@ -127,21 +129,32 @@ export class PriceComponent implements OnInit {
   addPrice() {
     this.AdminApi.addPrices(this.addPricesform.value).subscribe((res) => {
       console.log(res, "prices")
-      // window.location.reload();
+      window.location.reload();
     })
   }
 
- editPrice(p:any){
-  this.addPricesform.patchValue({
-    price:p.price,
-    id:p._id  
-  })
- }
- 
- updateSizes(){
-  this.AdminApi.updatePrices(this.addPricesform.value).subscribe((res:any)=>{
-    console.log(res,'up')
-  })
- }
+  editPrice(p: any) {
+
+    this.addbtn = false
+    this.editbtn = true
+    this.addPricesform.patchValue({
+      price: p.price,
+      id: p._id
+    })
+  }
+
+  updateSizes() {
+    this.AdminApi.updatePrices(this.addPricesform.value).subscribe((res: any) => {
+      console.log(res, 'up')
+      window.location.reload();
+    })
+  }
+  deleteprice(p: any) {
+
+    this.AdminApi.deleteprice(p._id).subscribe((res) => {
+      console.log(res, 'delete price')
+      window.location.reload();
+    })
+  }
 }
 

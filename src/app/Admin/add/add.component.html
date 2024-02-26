@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-            <div class="card P-4">
+            <div class="card P-4 border-0">
                 <div>
                     <h1 class="card-header text-center">Add Size</h1>
                 </div>
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-</div><br><br>
+</div><br>
 <!-- <div class="col-sm-6">
     <div class="card p-4">
         <h2 class="card-header text-center">View Size</h2>
@@ -43,35 +43,35 @@
         </table>
     </div>
 </div> -->
-<div class="table-responsive mt-4">
-    <div class="card">
-        <h2 class="card-header text-center">View</h2>
-        <table class="table table-bordered">
-            <thead class="bg-dark text-white sticky-top">
-                <tr>
-                    <th>S.No:</th>
-                    <th>Frame Sizes</th>
-                    <th>Actions</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let a of frames; let i = index">
-                    <td>
-                        {{ i + 1 }}
-                    </td>
-                    <td>
-                        <p class="">{{ a.size }}</p>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-warning" (click)="editSize(a)">Edit</button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-danger" (click)="deleteSize(a)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="row">
+    <div class="col-sm-9 m-auto">
+        <div class="table-responsive mt-4">
+            <div class="card border-0 p-4 ">
+                <h2 class="card-header text-center">View Sizes</h2>
+                <table class="table table-bordered p-2 ">
+                    <thead class="bg-dark text-white sticky-top">
+                        <tr>
+                            <th>S.No:</th>
+                            <th>Frame Sizes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let a of frames; let i = index">
+                            <td>
+                                {{ i + 1 }}
+                            </td>
+                            <td>
+                                <p class="">{{ a.size }}</p>
+                            </td>
+                            <td>
+                                <a type="button" (click)="editSize(a)"><i class="bi bi-pencil-square ms-2 fs-4" style="color: blue;" ></i></a>
+                                <a type="button" (click)="deleteSize(a)"><i class="bi bi-trash3 ms-2 fs-4 " style="color: red;" ></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-
 </div>

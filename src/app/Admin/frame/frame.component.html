@@ -1,9 +1,39 @@
+<div class="row">
+    <div class="col-sm-9 m-auto">
+        <div class="table-responsive mt-4 ">
+            <div class="card border-0 p-4">
+                <h2 class="card-header text-center">View Frames</h2>
+                <table class="table table-bordered p-2">
+                    <thead class="bg-dark text-white sticky-top">
+                        <tr>
+                            <th>S.No:</th>
+                            <th>Frame Thickness</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let b of frames; let i= index ">
+                            <td>{{i+1}}</td>
+                            <td>{{b.thickness}}</td>
+                            <td>
+                                <a type="button" (click)="editThickness(b)"><i class="bi bi-pencil-square ms-2 fs-4"
+                                        style="color: blue;"></i></a>
+                                <a type="button" (click)="deleteThickness(b)"><i class="bi bi-trash3 ms-2 fs-4 "
+                                        style="color: red; "></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div><br>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
             <div class="card P-4">
                 <div>
-                    <h1 class="card-header text-center">Add Thickness</h1>
+                    <h1 class="card-header text-center fw-bold">Add Thickness</h1>
                 </div>
                 <div class="card-body lb">
                     <form [formGroup]="ThicknessForm">
@@ -12,39 +42,13 @@
                             <input type="text" class="form-control" formControlName="thickness">
                         </div>
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-primary" *ngIf="addbtn" (click)="addThickness()">Add Frames</button>
-                            <button class="btn btn-primary" *ngIf="editbtn" (click)="updateThickness()">Update</button>
+                            <button class="btn btn-primary btn btn-theme" *ngIf="addbtn" (click)="addThickness()">Add Frames</button>
+                            <button class="btn btn-primary"  class="btn btn-theme" *ngIf="editbtn" (click)="updateThickness()">Update</button>
                         </div>
+                       
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-</div><br><br>
-<div class="col-sm-6">
-    <div class="card p-4">
-        <h2 class="card-header text-center">View Frame</h2>
-        <table class="table table-bordered p-2">
-            <thead>
-                <tr>
-                    <th scope="col">S.no</th>
-                    <th scope="col">Frame Thickness</th>
-                    <th scope="col">Action</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let b of frames; let i= index ">
-                    <td>{{i+1}}</td>
-                    <td>{{b.thickness}}</td>
-                    <td>
-                        <button type="button" class="btn btn-warning" (click)="editThickness(b)">Edit</button>
-                        <button type="button" class="btn btn-danger" (click)="deleteThickness(b)">Delete</button>
-
-                    </td>
-                    
-                </tr>
-            </tbody>
-        </table>
     </div>
 </div>

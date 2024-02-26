@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AdminService {
- 
+
   header: any
   jwttoken(): any {
     this.header = {
@@ -14,11 +14,11 @@ export class AdminService {
       }),
     }
     return this.header;
-    
+
   }
 
   constructor(private http: HttpClient) {
-   
+
   }
 
   getAdmin(data: any) {
@@ -32,61 +32,61 @@ export class AdminService {
   Getsize() {
     return this.http.get('http://localhost:5000/size/getsizes', this.jwttoken())
   }
-  Addprice(data:any) {
+  Addprice(data: any) {
     return this.http.post('http://localhost:5000/price/addprice', data, this.jwttoken())
   }
-  Getprice(){
+  Getprice() {
     return this.http.get('http://localhost:5000/price/getprices', this.jwttoken())
 
   }
-  // viewFrames() {
-  //   return this.http.get('http://localhost:5000/frames/getframes', this.jwttoken())
-  // }
 
-  Addthickness(data:any) {
+  Addthickness(data: any) {
     return this.http.post('http://localhost:5000/thickness/addthickness', data, this.jwttoken())
 
   }
 
-  Getthickness(){
+  Getthickness() {
     return this.http.get('http://localhost:5000/thickness/getallthickness', this.jwttoken())
 
   };
 
-  getSizes(){
-    return this.http.get('http://localhost:5000/size/getsizes',this.jwttoken())
+  getSizes() {
+    return this.http.get('http://localhost:5000/size/getsizes', this.jwttoken())
   }
 
-  getThickness(){
-    return this.http.get('http://localhost:5000/thickness/getAllthickness',this.jwttoken())
+  getThickness() {
+    return this.http.get('http://localhost:5000/thickness/getAllthickness', this.jwttoken())
   }
 
-  addPrices(data:any){
-    return this.http.post('http://localhost:5000/price/addprice',data,this.jwttoken())
+  addPrices(data: any) {
+    return this.http.post('http://localhost:5000/price/addprice', data, this.jwttoken())
   };
 
-  updateSize( data:any){
-    return this.http.put('http://localhost:5000/size/updatesizeBy/'+data.id,data,this.jwttoken())
+  updateSize(data: any) {
+    return this.http.put('http://localhost:5000/size/updatesizeBy/' + data.id, data, this.jwttoken())
   };
 
-  deleteSize(id:any){
-    return this.http.delete('http://localhost:5000/size/deletesizeBy/'+id,this.jwttoken());
+  deleteSize(id: any) {
+    return this.http.delete('http://localhost:5000/size/deletesizeBy/' + id, this.jwttoken());
   }
 
- updateThickness(data:any){
-    return this.http.put('http://localhost:5000/thickness/updateThicknessBy/'+data.id,data,this.jwttoken())
- }
+  updateThickness(data: any) {
+    return this.http.put('http://localhost:5000/thickness/updateThicknessBy/' + data.id, data, this.jwttoken())
+  }
 
- deleteThickness(id:any){
-  return this.http.delete('http://localhost:5000/thickness/deleteThicknessBy/'+id, this.jwttoken());
-}
- 
-getAllframesWithprices(){
-  return this.http.get('http://localhost:5000/price/getframes' ,this.jwttoken())
-}
+  deleteThickness(id: any) {
+    return this.http.delete('http://localhost:5000/thickness/deleteThicknessBy/' + id, this.jwttoken());
+  }
 
-updatePrices(data:any){
-  return this.http.put('http://localhost:5000/price/updatePrice/'+data.id,data, this.jwttoken())
-}
+  getAllframesWithprices() {
+    return this.http.get('http://localhost:5000/price/getframes', this.jwttoken())
+  }
 
+  updatePrices(data: any) {
+    return this.http.put('http://localhost:5000/price/updatePrice/' + data.id, data, this.jwttoken())
+  }
+  deleteprice(id: any) {
+    return this.http.delete('http://localhost:5000/price/deletePrice/' + id, this.jwttoken());
+
+  }
 }
