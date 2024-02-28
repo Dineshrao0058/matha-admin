@@ -17,32 +17,15 @@
                         </div>
                     </form>
                 </div>
+                <!-- body -->
             </div>
+            <!-- card -->
         </div>
+        <!-- col -->
     </div>
+    <!-- row -->
 </div><br>
-<!-- <div class="col-sm-6">
-    <div class="card p-4">
-        <h2 class="card-header text-center">View Size</h2>
-        <table class="table table-bordered p-2">
-            <thead>
-                <tr>
-                    <th scope="col">S.no</th>
-                    <th scope="col">Sizes</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let a of frames; let i= index ">
-                    <td>{{i+1}}</td>
-                    <td>{{a.size}}</td>
-                    <button type="button" class="btn btn-warning" (click)="editSize(a)">Edit</button>
-                    <button type="button" class="btn btn-danger" (click)="deleteSize(a)">Delete</button>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div> -->
+<!-- container -->
 <div class="row">
     <div class="col-sm-9 m-auto">
         <div class="table-responsive mt-4">
@@ -65,13 +48,21 @@
                                 <p class="">{{ a.size }}</p>
                             </td>
                             <td>
-                                <a type="button" (click)="editSize(a)"><i class="bi bi-pencil-square ms-2 fs-4" style="color: blue;" ></i></a>
-                                <a type="button" (click)="deleteSize(a)"><i class="bi bi-trash3 ms-2 fs-4 " style="color: red;" ></i></a>
+                                <a type="button" (click)="editSize(a)"><i class="bi bi-pencil-square ms-2 fs-4"
+                                        style="color: blue;"></i></a>
+                                <a type="button" (click)="deleteSize(a)"><i class="bi bi-trash3 ms-2 fs-4 "
+                                        style="color: red;"></i></a>
                             </td>
                         </tr>
                     </tbody>
+                    <!-- tbody -->
                 </table>
+                <!-- table -->
             </div>
+            <!--card border -->
         </div>
+        <!-- table -->
     </div>
+    <!-- col-sm -->
 </div>
+<!-- row -->
