@@ -2,33 +2,36 @@
     <div class="container adminlogin">
         <div class="row m-auto">
             <div class="col-sm-8">
-                <div class="card p-4">
+                <div class="card">
                     <h2 class="card-header text-center">View Details</h2>
-                    <table class="table table-bordered p-2">
-                        <thead>
-                            <tr>
-                                <th scope="col">S.no</th>
-                                <th scope="col">Sizes</th>
-                                <th scope="col">Thickness</th>
-                                <th scope="col">Prices</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let p of allFrames; let i= index ">
-                                <td>{{i+1}}</td>
-                                <td>{{p.sizes_details[0]?.size}}</td>
-                                <td>{{p.thicknes_details[0]?.thickness}}</td>
-                                <td>{{p.price}}</td>
-                                <td>
-                                    <a type="button" (click)="editPrice(p)"><i class="bi bi-pencil-square ms-2 fs-4"
-                                            style="color: blue;"></i></a>
-                                    <a type="button" (click)="deleteprice(p)"><i class="bi bi-trash3 ms-2 fs-4 "
-                                            style="color: red; "></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">S.no</th>
+                                    <th scope="col">Sizes</th>
+                                    <th scope="col">Thickness</th>
+                                    <th scope="col">Prices</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let p of allFrames; let i= index ">
+                                    <td>{{i+1}}</td>
+                                    <td>{{p.sizes_details[0]?.size}}</td>
+                                    <td>{{p.thicknes_details[0]?.thickness}}</td>
+                                    <td>{{p.price}}</td>
+                                    <td>
+                                        <a type="button" (click)="editPrice(p)"><i class="bi bi-pencil-square ms-2 fs-4"
+                                                style="color: blue;"></i></a>
+                                        <a type="button" (click)="deleteprice(p)"><i class="bi bi-trash3 ms-2 fs-4 "
+                                                style="color: red; "></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
             <div class=" col-sm-4">
@@ -75,7 +78,7 @@
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-theme" *ngIf="addbtn"
                                                 (click)="addPrice()">submit</button>
-                                            <button class="btn btn-primary"  class="btn btn-theme" *ngIf="editbtn"
+                                            <button class="btn btn-primary" class="btn btn-theme" *ngIf="editbtn"
                                                 (click)="updateSizes()">Update</button>
                                         </div>
                                     </form>
