@@ -6,6 +6,8 @@ import { ViewComponent } from './Admin/view/view.component';
 import { EditComponent } from './Admin/edit/edit.component';
 import { FrameComponent } from './Admin/frame/frame.component';
 import { PriceComponent } from './Admin/price/price.component';
+import { SalesComponent } from './Admin/sales/sales.component';
+import { ReportsComponent } from './Admin/reports/reports.component';
 export const routes: Routes = [
     { path: '', component: AdminLoginComponent },
     { path: 'admin', component: AdminLoginComponent },
@@ -16,7 +18,9 @@ export const routes: Routes = [
             { path: 'view', component: ViewComponent },
             { path: 'edit', component: EditComponent },
             { path: 'frame', component: FrameComponent },
-            { path: 'price', component: PriceComponent }
+            { path: 'price', component: PriceComponent },
+            { path: 'sales', component: SalesComponent },
+            { path: 'reports', component: ReportsComponent }
         ]
     }
 ];

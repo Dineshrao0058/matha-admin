@@ -89,4 +89,8 @@ export class AdminService {
     return this.http.delete('http://localhost:5000/price/deletePrice/' + id, this.jwttoken());
 
   }
+  orderlist() {
+    return this.http.get('http://localhost:5000/cart/getcart', this.jwttoken())
+  }
+  
 }
