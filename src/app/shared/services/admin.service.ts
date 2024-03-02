@@ -92,11 +92,11 @@ updatePrices(data:any){
 }
 
   deleteprice(id: any) {
-    return this.http.delete('http://localhost:5000/price/deletePrice/' + id, this.jwttoken());
+    return this.http.delete(this.serverUrl+'/price/deletePrice/' + id, this.jwttoken());
 
   }
   orderlist() {
-    return this.http.get('http://localhost:5000/cart/getcart', this.jwttoken())
+    return this.http.get(this.serverUrl+'/cart/getcart', this.jwttoken())
   }
   
 }

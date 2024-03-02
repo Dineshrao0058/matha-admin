@@ -43,7 +43,7 @@ export class AddComponent implements OnInit {
   addSizes() {
     this.AdminApi.Addsize(this.AddForm.value).subscribe((res: any) => {
       console.log(res);
-      window.location.reload();
+      this.Routes.navigate(['/add'])
     });
   }
 
@@ -61,14 +61,13 @@ export class AddComponent implements OnInit {
     this.AdminApi.updateSize(this.AddForm.value).subscribe((res: any) => {
       console.log(res);
     });
-    window.location.reload();
+    this.Routes.navigate(['/add'])
   };
 
   deleteSize(a: any) {
-
     this.AdminApi.deleteSize(a._id).subscribe((res) => {
       console.log(res, 'delete size')
-      window.location.reload();
+      this.Routes.navigate(['/add'])
     })
   }
 
