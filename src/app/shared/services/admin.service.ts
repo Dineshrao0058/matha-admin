@@ -27,7 +27,7 @@ export class AdminService {
   }
 
   getAdmin(data: any) {
-    return this.http.post(this.serverUrl+'/admin/login', data)
+    return this.http.post(this.serverUrl+'/admin/login/', data)
   }
 
   Addsize(data: any) {
