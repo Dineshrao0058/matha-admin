@@ -19,11 +19,11 @@ export class AdminService {
       }),
     }
     return this.header;
-    
+
   }
 
   constructor(private http: HttpClient) {
-   
+
   }
 
   getAdmin(data: any) {
@@ -44,9 +44,6 @@ export class AdminService {
     return this.http.get(this.serverUrl+'/price/getprices', this.jwttoken())
 
   }
-  // viewFrames() {
-  //   return this.http.get('http://localhost:5000/frames/getframes', this.jwttoken())
-  // }
 
   Addthickness(data:any) {
     return this.http.post(this.serverUrl+'/thickness/addthickness', data, this.jwttoken())
@@ -94,4 +91,12 @@ updatePrices(data:any){
   return this.http.put(this.serverUrl+'/price/updatePrice/'+data.id,data, this.jwttoken())
 }
 
+  deleteprice(id: any) {
+    return this.http.delete('http://localhost:5000/price/deletePrice/' + id, this.jwttoken());
+
+  }
+  orderlist() {
+    return this.http.get('http://localhost:5000/cart/getcart', this.jwttoken())
+  }
+  
 }

@@ -12,93 +12,13 @@ import { Router } from '@angular/router';
   styleUrl: './price.component.scss'
 })
 export class PriceComponent implements OnInit {
-  prices!:any
-  // priceForm!: FormGroup;
-  // size: any;
-  // thickness: any;
-  // orderData: any = [];
-  // grandTotal: number = 0;
-  // income: number = this.grandTotal;
-  // t: any;
-  // s: any;
-  // constructor(private adminApi: AdminService, private fb: FormBuilder) { }
-
-  // ngOnInit(): void {
-  //   this.adminApi.Getprice().subscribe((res: any) => {
-  //     this.size = res;
-  //   });
-
-  //   this.adminApi.Getprice().subscribe((res: any) => {
-  //     this.getPrice = res;
-  //   });
-
-  //   this.priceForm = this.fb.group({
-  //     sizeId: ['', [Validators.required]],
-  //     thicknessId: ['', [Validators.required]],
-  //     price: [null, [Validators.required]],
-
-  //   });
-  // }
-  // get total() {
-  //   return this.s * this.t;
-  // }
-  // getPrice(p: any) {
-  //   let pr = this.size.find((f: any) => f.productname == p.target.value);
-
-  //   this.priceForm.patchValue({
-  //     price: Number(pr.price),
-  //   });
-  // }
-
-  // totalPrice(tt: any) {
-  //   let tot = this.priceForm.value.price * tt.target.value;
-
-  //   this.priceForm.patchValue({
-  //     total: Number(tot),
-  //   });
-  // }
-  // order() {
-  //   this.income += this.grandTotal;
-  //   console.log(this.income, 'ghfj');
-
-  //   this.grandTotal += this.priceForm.value.total;
-  //   if (this.orderData.length === 0) {
-  //     this.orderData = {
-  //       mobilenumber: this.priceForm.value.mobilenumber,
-  //       orderDetails: [
-  //         {
-  //           product: this.priceForm.value.product,
-  //           price: this.priceForm.value.price,
-  //           quantity: this.priceForm.value.quantity,
-  //           total: this.priceForm.value.total,
-  //         },
-  //       ],
-  //       grandTotal: this.grandTotal,
-  //       income: this.income,
-  //     };
-  //   } else {
-  //     let ordersProduct = {
-  //       product: this.priceForm.value.product,
-  //       price: this.priceForm.value.price,
-  //       quantity: this.priceForm.value.quantity,
-  //       total: this.priceForm.value.total,
-  //     };
-
-  //     this.orderData.orderDetails.push(ordersProduct);
-  //     this.orderData.grandTotal = this.grandTotal;
-  //     this.orderData.income = this.income;
-  //   }
-  //   console.log(this.orderData, 'od');
-
-  //   this.priceForm.reset();
-  // }
-  // clear() {
-
-  // }
+  prices!: any
   addPricesform!: FormGroup
   sizes: any
   thickness: any
-  allFrames:any
+  allFrames: any
+  addbtn: boolean = true
+  editbtn: boolean = false
   constructor(private fb: FormBuilder, private router: Router, private AdminApi: AdminService) { }
 
   ngOnInit(): void {
@@ -106,7 +26,7 @@ export class PriceComponent implements OnInit {
       sizeId: ['', [Validators.required]],
       price: ['', [Validators.required]],
       thicknessId: ['', [Validators.required]],
-      id:['', [Validators.required]]
+      id: ['', [Validators.required]]
     })
 
     this.AdminApi.getSizes().subscribe((res) => {
@@ -119,28 +39,42 @@ export class PriceComponent implements OnInit {
       console.log(this.thickness, "thickness")
     })
 
-    this.AdminApi.getAllframesWithprices().subscribe((res:any)=>{
+    this.AdminApi.getAllframesWithprices().subscribe((res: any) => {
       this.allFrames = res
-      console.log(this.allFrames,'allframes')
+      console.log(this.allFrames, 'allframes')
     })
   }
   addPrice() {
     this.AdminApi.addPrices(this.addPricesform.value).subscribe((res) => {
       console.log(res, "prices")
+      window.location.reload();
     })
   }
 
- editPrice(p:any){
-  this.addPricesform.patchValue({
-    price:p.price,
-    id:p._id  
-  })
- }
- 
- updateSizes(){
-  this.AdminApi.updatePrices(this.addPricesform.value).subscribe((res:any)=>{
-    console.log(res,'up')
-  })
- }
+  editPrice(p: any) {
+
+    this.addbtn = false
+    this.editbtn = true
+    this.addPricesform.patchValue({
+      price: p.price,
+      sizeId: p.sizeId,
+      thicknessId: p.thicknessId,
+      id: p._id
+    })
+  }
+
+  updateSizes() {
+    this.AdminApi.updatePrices(this.addPricesform.value).subscribe((res: any) => {
+      console.log(res, 'up')
+      window.location.reload();
+    })
+  }
+  deleteprice(p: any) {
+
+    this.AdminApi.deleteprice(p._id).subscribe((res) => {
+      console.log(res, 'delete price')
+      window.location.reload();
+    })
+  }
 }
 
