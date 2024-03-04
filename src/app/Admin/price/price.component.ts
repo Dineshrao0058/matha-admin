@@ -69,7 +69,7 @@ export class PriceComponent implements OnInit {
       this.router.navigate(['/price']);
     })
   }
-  
+
   deleteprice(p: any) {
     this.AdminApi.deleteprice(p._id).subscribe((res) => {
       console.log(res, 'delete price')
