@@ -34,7 +34,7 @@ export class FrameComponent implements OnInit {
   addThickness() {
     this.AdminApi.Addthickness(this.ThicknessForm.value).subscribe((res: any) => {
       console.log(res);
-      window.location.reload();
+      this.Routes.navigate(['/frame'])
 
     })
   }
@@ -51,14 +51,14 @@ export class FrameComponent implements OnInit {
   updateThickness(){
     this.AdminApi.updateThickness(this.ThicknessForm.value).subscribe((res:any)=>{
       console.log(res)
-      window.location.reload();
+      this.Routes.navigate(['/frame'])
     })
   }
 
   deleteThickness(b:any){
     this.AdminApi.deleteThickness(b._id).subscribe((res:any)=>{
       console.log(res)
-      window.location.reload();
+      this.Routes.navigate(['/frame'])
     })
   }  
 }

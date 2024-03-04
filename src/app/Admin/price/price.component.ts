@@ -47,7 +47,7 @@ export class PriceComponent implements OnInit {
   addPrice() {
     this.AdminApi.addPrices(this.addPricesform.value).subscribe((res) => {
       console.log(res, "prices")
-      window.location.reload();
+      this.router.navigate(['/price'])
     })
   }
 
@@ -66,14 +66,14 @@ export class PriceComponent implements OnInit {
   updateSizes() {
     this.AdminApi.updatePrices(this.addPricesform.value).subscribe((res: any) => {
       console.log(res, 'up')
-      window.location.reload();
+      this.router.navigate(['/price']);
     })
   }
+  
   deleteprice(p: any) {
-
     this.AdminApi.deleteprice(p._id).subscribe((res) => {
       console.log(res, 'delete price')
-      window.location.reload();
+      this.router.navigate(['/price']);
     })
   }
 }
