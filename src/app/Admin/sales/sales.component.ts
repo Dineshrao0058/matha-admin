@@ -17,9 +17,6 @@ export class SalesComponent implements OnInit {
 
   }
 
-
-
-
   ngOnInit(): void {
     this.adminApi.orderlist().subscribe((res: any) => {
       console.log(res);
