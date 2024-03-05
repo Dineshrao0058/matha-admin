@@ -8,16 +8,17 @@ import { CONSTANTS } from '../../constants';
 })
 export class AdminService {
 
+  
   serverUrl = CONSTANTS.serverUrl
-
+  
   jwttoken(): any {
     const header = {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + localStorage.getItem('admin-token')
       }),
-    }
+    } 
     return header;
-
+    
   }
 
   constructor(private http: HttpClient) {
